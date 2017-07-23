@@ -168,7 +168,7 @@ class GenericBot:
 
         if os.getcwd() != tempdir:
 
-            self.log.debug("Changing directory to: {}".format(tempdir))
+            self.log.debug("Changing directory to: {}".format(tempdir.name))
 
             os.chdir(tempdir)
 
