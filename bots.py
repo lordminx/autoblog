@@ -144,7 +144,7 @@ class GenericBot:
 
         post = self.build_post()
 
-        content_path = os.path.join(tempdir, "content")
+        content_path = os.path.join(tempdir.name, "content")
 
         self.log.debug("CONTENT PATH: {}".format(content_path))
 
