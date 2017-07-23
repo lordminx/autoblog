@@ -98,7 +98,7 @@ class GenericBot:
 
         # Get date of last published blog post in UTC
         last_post = fp["entries"][0].published_parsed
-        self.log.debug("Last post date parsed:", last_post)
+        self.log.debug("Last post date parsed: {}".format(last_post))
 
         # cast date to datetime
         last_post = datetime(*last_post[:6])
@@ -108,7 +108,7 @@ class GenericBot:
 
         # compute difference
         time_since = now - last_post
-        self.log.debug("Days since last blog post:", time_since.days)
+        self.log.debug("Days since last blog post: {}".format(time_since.days))
 
         # check if time since last post is longer than timeout value
         return time_since.days > self.config["timeout"]
