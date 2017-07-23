@@ -24,7 +24,6 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
 
     # for test stuff only
-    config["repo"] = "testy"
     config["title"] = "Autobots, REPRESENT!"
 
     if opts["auto"]:
