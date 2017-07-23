@@ -76,6 +76,8 @@ class GenericBot:
 
         template = self.config["template"]
 
+        self.config["slug"] = slugify(self.config["title"])
+
         post = template.format(**self.config)
 
         self.log.debug("Post built:\n\n{}\n\n".format(str(post)))

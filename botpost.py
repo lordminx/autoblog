@@ -25,11 +25,19 @@ if __name__ == "__main__":
 
     # for test stuff only
     config["title"] = "Autobots, REPRESENT!"
+    bot = GenericBot(config=config)
 
     if opts["auto"]:
-        bot = GenericBot(config=config)
+
         if bot.check_feed():
             bot.clone_repo()
             bot.write_post()
             bot.commit_post()
             bot.push_repo()
+        else:
+            logging.info("Last post less than {} days ago: Nothing to do.".format(bot.config["timeout"]))
+    elif opts["print"]:
+        print(bot.build_post())
+
+    elif opts["check"]:
+        logging.info("Seems everything worked out alright, maybe?")
