@@ -140,7 +140,7 @@ class GenericBot:
         if not tempdir:
             tempdir = self.config["tempdir"]
 
-        assert "content" in os.listdir(tempdir)
+        assert "content" in os.listdir(tempdir.name)
 
         post = self.build_post()
 
@@ -164,13 +164,13 @@ class GenericBot:
         if not tempdir:
             tempdir = self.config["tempdir"]
 
-        target = os.path.join(tempdir, "content")
+        target = os.path.join(tempdir.name, "content")
 
-        if os.getcwd() != tempdir:
+        if os.getcwd() != tempdir.name:
 
             self.log.debug("Changing directory to: {}".format(tempdir.name))
 
-            os.chdir(tempdir)
+            os.chdir(tempdir.name)
 
         self.log.info("Committing changes...")
 
@@ -188,10 +188,10 @@ class GenericBot:
         if not tempdir:
             tempdir = self.config["tempdir"]
 
-        if os.getcwd() != tempdir:
+        if os.getcwd() != tempdir.name:
 
             self.log.debug("Changing directory to {}.".format(tempdir.name))
-            os.chdir(tempdir)
+            os.chdir(tempdir.name)
 
         assert ".git" in os.listdir(".")    # Check that we've moved into a non-bare git repo
         self.log.debug("Checked for git repo: {}".format(tempdir.name))
