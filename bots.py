@@ -190,11 +190,11 @@ class GenericBot:
 
         if os.getcwd() != tempdir:
 
-            self.log.debug("Changing directory to {}.".format(tempdir))
+            self.log.debug("Changing directory to {}.".format(tempdir.name))
             os.chdir(tempdir)
 
         assert ".git" in os.listdir(".")    # Check that we've moved into a non-bare git repo
-        self.log.debug("Checked for git repo: {}".format(tempdir))
+        self.log.debug("Checked for git repo: {}".format(tempdir.name))
 
         self.log.debug("Trying regular 'git push'...")
 
