@@ -130,7 +130,7 @@ class GenericBot:
         assert repo_path.endswith(".git")
 
         # clone repo to _repo dir using quoted path
-        res = call(["git", "clone", quote(repo_path), tempdir])
+        res = call(["git", "clone", quote(repo_path), tempdir.name])
 
         if res != 0:
             raise OSError("Could not clone repo: {}".format(repo_path))
